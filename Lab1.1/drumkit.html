@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drum kit</title>
+    <script src="lab2.js"></script>
+</head>
+<body>
+    <audio src="sounds/boom.wav" controls></audio>
+    <audio src="sounds/clap.wav" controls id="clap"></audio>
+    <button id="recBtn">nagrywaj</button>
+    <Button id="playBtn">start</Button>
+
+    <script type="text/javascript">
+        const clapSound = document.querySelector('#clap')
+        const channel1 = []
+        document.body.addEventListener('keypress', playAudio)
+
+
+
+        function playAudio(e) {
+            switch (e.code) {
+                case 'KayA':
+                clapSound.currentTime = 0
+                clapSound.play()
+                const time = Date.now()
+                channel1.push({
+                    code: e.code,
+                    time: time
+                })
+                break
+            }
+        
+        } 
+    </script>
+</body>
+</html>
